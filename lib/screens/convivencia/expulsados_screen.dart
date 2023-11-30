@@ -87,6 +87,7 @@ class ExpulsadosScreen extends StatelessWidget {
               ),
             );
           }),
+          drawer: NavigationDrawer(children: [],),
     );
   }
 

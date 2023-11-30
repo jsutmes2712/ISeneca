@@ -13,7 +13,7 @@ class ConvivenciaScreen extends StatelessWidget {
       body: ListView(
         children: [
           GestureDetector(
-            onTap: () => Navigator.pushNamed(context, "expulsados_screen"),
+            onTap: () => Navigator.pushNamed(context, "screen_expulsados"),
             child: const Card(
               child: ListTile(
                 leading: FaIcon(FontAwesomeIcons.boxes),
