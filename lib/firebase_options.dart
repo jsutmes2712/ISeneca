@@ -55,7 +55,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyD_N2s3r0oAe6ozfqljwFj4K9yLe8vO4_c',
-    appId: '1:286196859062:android:54075fee392de3f962a617',
+    appId: '1:286196859062:android:ffde213b3a74b7d462a617',
     messagingSenderId: '286196859062',
     projectId: 'ijandula-17ffd',
     storageBucket: 'ijandula-17ffd.appspot.com',
@@ -67,6 +67,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '286196859062',
     projectId: 'ijandula-17ffd',
     storageBucket: 'ijandula-17ffd.appspot.com',
+    androidClientId: '286196859062-qsoadc7a6gboc9d5upvpplqe6j8o4o8q.apps.googleusercontent.com',
     iosClientId: '286196859062-qtaj2gdsdhk28aqsrmsg4pughi9kde42.apps.googleusercontent.com',
     iosBundleId: 'com.example.iseneca',
   );
@@ -77,6 +78,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '286196859062',
     projectId: 'ijandula-17ffd',
     storageBucket: 'ijandula-17ffd.appspot.com',
+    androidClientId: '286196859062-qsoadc7a6gboc9d5upvpplqe6j8o4o8q.apps.googleusercontent.com',
     iosClientId: '286196859062-q2dt1svb6muaon99vtgkf7imo4ljh5b3.apps.googleusercontent.com',
     iosBundleId: 'com.example.iseneca.RunnerTests',
   );
