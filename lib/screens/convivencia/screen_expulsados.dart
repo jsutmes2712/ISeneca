@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:iseneca/providers/expulsados_provider.dart';
+import 'package:iseneca/utils/human_formats.dart';
 import 'package:provider/provider.dart';
 //import 'package:url_launcher/url_launcher.dart';
 
-class ScreenExpulsados extends StatefulWidget {
+class ScreenExpulsados extends StatelessWidget {
   const ScreenExpulsados({super.key});
-
-  @override
-  State<ScreenExpulsados> createState() => _ScreenExpulsadosState();
-}
-
-class _ScreenExpulsadosState extends State<ScreenExpulsados> {
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +18,7 @@ class _ScreenExpulsadosState extends State<ScreenExpulsados> {
         children: [
           ElevatedButton(
             onPressed: ()  => expulsadosProvider.selectDate(context),
-            child: const Text('fecha')
+            child: Text(HumanFormats.formatDate(expulsadosProvider.selectedDate.toLocal()))
           ),
           Expanded(
             child: ListView.builder(

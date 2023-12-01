@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iseneca/models/models.dart';
+import 'package:iseneca/utils/human_formats.dart';
 import 'package:iseneca/utils/peticion_expulsados.dart';
 
 class ExpulsadosProvider extends ChangeNotifier {
@@ -13,18 +14,26 @@ class ExpulsadosProvider extends ChangeNotifier {
 
   ExpulsadosProvider() {
     debugPrint('Convivencia Provider inicializada');
-    getExpulsados();
     notifyListeners();
   }
 
   Future<void> getExpulsados() async {
-    final List<Expulsado> expulsadoResponse = await PeticionExpulsados().getExpulsados();
-    listaExpulsados = [...expulsadoResponse ,...expulsadoResponse];
+  final List<Expulsado> expulsadoResponse = await PeticionExpulsados().getExpulsados();
 
-    notifyListeners();
-  }  
+  // Filtrar la lista de expulsados por la fecha dada
+  List<Expulsado> expulsadosFiltrados = expulsadoResponse.where((expulsado) {
+    // Convierte la fecha del objeto Expulsado a solo la fecha sin la hora
+    DateTime fechaExpulsado = HumanFormats.formatStringToDate(expulsado.fecInic);
 
-  
+    // Compara si la fecha del expulsado es igual a la fecha seleccionada
+    return fechaExpulsado.isAtSameMomentAs(selectedDate);
+  }).toList();
+
+  // Actualiza la lista de expulsados con la lista filtrada
+  listaExpulsados = expulsadosFiltrados;
+
+  notifyListeners();
+}
 
   Future<void> selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
