@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-var cursos = [
-  ['1A','1B'],
-  ['1A','1B','1C'],
-  ['1DAM','2DAM']
-];
+var cursos = {
+  'eso':['1A','1B'],
+  'bach':['1A','1B','1C'],
+  'ciclos':['1DAM','2DAM']
+};
 
 enum Cursos {PrimeroA, PrimeroB, PrimeroC, SegundoA, SegundoB, SegundoC, TerceroA, TerceroB, TerceroC, CuartoA, CuartoB, CuartoC, PrimeroFPB, SegundoFPB}
 
@@ -29,7 +29,7 @@ class _SideMenuState extends State<SideMenu> {
           subtitle: Text('Seleccionado: $seleccionCursos'),
           children: [
             RadioListTile(
-              value: Cursos.PrimeroA,
+              value: 'eso',
               groupValue: seleccionCursos, 
               onChanged: (value) => setState(() {
                 seleccionCursos = Cursos.PrimeroA;
@@ -49,10 +49,15 @@ class _SideMenuState extends State<SideMenu> {
                 seleccionCursos = Cursos.PrimeroA;
               }),
             )
-          ],
+          ]
+        ),
+        ExpansionTile(
+          title: const Text('CURSOS: '),
+          subtitle: Text('Seleccionado: $seleccionCursos'),
+          children: [
+              ...cursos['eso'].map((e) => RadioListTile(value: e, groupValue: groupValue, onChanged: ))
+            ]  
         )
-        
-
       ]
     );
   }
