@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+var cursos = [
+  ['1A','1B'],
+  ['1A','1B','1C'],
+  ['1DAM','2DAM']
+];
+
 enum Cursos {PrimeroA, PrimeroB, PrimeroC, SegundoA, SegundoB, SegundoC, TerceroA, TerceroB, TerceroC, CuartoA, CuartoB, CuartoC, PrimeroFPB, SegundoFPB}
 
 class SideMenu extends StatefulWidget {
