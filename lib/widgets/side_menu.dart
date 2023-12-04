@@ -17,7 +17,7 @@ class SideMenu extends StatefulWidget {
 
 class _SideMenuState extends State<SideMenu> {
   String seleccionCursos = 'ESO'; 
-
+  String seleccionAula = cursos['ESO']![0]; 
   @override
   Widget build(BuildContext context) {
     return NavigationDrawer(
@@ -27,6 +27,7 @@ class _SideMenuState extends State<SideMenu> {
           subtitle: Text('Seleccionado: $seleccionCursos'),
           children: [
             RadioListTile(
+              title: const Text('ESO'),
               value: 'ESO',
               groupValue: seleccionCursos,
               onChanged: (value) {
@@ -36,6 +37,7 @@ class _SideMenuState extends State<SideMenu> {
               },
             ),
             RadioListTile(
+              title: const Text('Bachillerato'),
               value: 'BACH',
               groupValue: seleccionCursos,
               onChanged: (value) {
@@ -45,11 +47,13 @@ class _SideMenuState extends State<SideMenu> {
               },
             ),
             RadioListTile(
+              title: const Text('Ciclos Formativos'),
               value: 'CICLOS',
               groupValue: seleccionCursos,
               onChanged: (value) {
                 setState(() {
-                  seleccionCursos = 'CICLOS';
+                  seleccionCursos = value!;
+                  seleccionAula = cursos[seleccionCursos]![0]; 
                 });
               },
             ),
@@ -57,34 +61,18 @@ class _SideMenuState extends State<SideMenu> {
         ),
         ExpansionTile(
           title: const Text('CURSOS: '),
-          subtitle: Text('Seleccionado: $seleccionCursos'),
+          subtitle: Text('Seleccionado: $seleccionAula'),
           children: [
             ...cursos[seleccionCursos]!.map((e) => RadioListTile(
-                  value: e,
-                  groupValue: seleccionCursos,
-                  onChanged: (value) {
-                    setState(() {
-                    });
-                  },
-                )),
-
-            ...cursos[seleccionCursos]!.map((b) => RadioListTile(
-              value: b,
-              groupValue: seleccionCursos,
+              title: Text(e),
+              value: e,
+              groupValue: seleccionAula,
               onChanged: (value) {
                 setState(() {
+                  seleccionAula = value!;
                 });
               },
             )),
-
-            ...cursos[seleccionCursos]!.map((c) => RadioListTile(
-                  value: c,
-                  groupValue: seleccionCursos,
-                  onChanged: (value) {
-                    setState(() {
-                    });
-                  },
-                )),
           ],
         ),
       ],
