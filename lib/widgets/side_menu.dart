@@ -12,8 +12,8 @@ class SideMenu extends StatefulWidget {
 }
 
 class _SideMenuState extends State<SideMenu> {
-  String seleccionCursos = 'ESO'; 
-  String seleccionAula = '1A'; 
+  String seleccionCursos = ''; 
+  String seleccionAula = ''; 
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class _SideMenuState extends State<SideMenu> {
         ExpansionTile(
           title: const Text('AULAS: '),
           subtitle: Text('Seleccionado: $seleccionAula'),
-          children: [
+          children:  seleccionCursos.isNotEmpty ? [
             ...expulsadosProvider.cursos[seleccionCursos]!.map((e) => RadioListTile(
               title: Text(e),
               value: e,
@@ -71,7 +71,7 @@ class _SideMenuState extends State<SideMenu> {
                 });
               },
             )),
-          ],
+          ] : [],
         ),
 
         Padding(
