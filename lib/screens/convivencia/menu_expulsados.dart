@@ -6,63 +6,61 @@ import 'package:iseneca/widgets/side_menu.dart';
 import 'package:provider/provider.dart';
 
 class MenuExpulsados extends StatelessWidget {
-  const MenuExpulsados({super.key});
+  const MenuExpulsados({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final expulsadosProvider = Provider.of<ExpulsadosProvider>(context);
     List<Expulsado> expulsados = [];
-    return FutureBuilder(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Expulsados'),
+      ),
+      body: FutureBuilder(
         future: expulsadosProvider.getExpulsados(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             expulsados = snapshot.data;
-            return Scaffold(
-              appBar: AppBar(
-                title: const Text('Expulsados'),
-              ),
-              body: Column(
-                children: [
-                  ElevatedButton(
-                      onPressed: () => expulsadosProvider.selectDate(context),
-                      child: Text(HumanFormats.formatDate(
-                          expulsadosProvider.selectedDate.toLocal()))),
-                  Expanded(
-                    child: ListView.builder(
-                        itemCount: expulsados.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return GestureDetector(
-                            onTap: () {
-                              //_mostrarAlert(context, index, listadoExpulsadosHoy,
-                              //    cogerDatosExpulsados);
-                            },
-                            child: ListTile(
-                              title: Text(expulsados[index].apellidosNombre),
-                              trailing: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(expulsados[index].fecInic),
-                                  const Text(" - "),
-                                  Text(expulsados[index].fecFin),
-                                ],
-                              ),
-                              subtitle: Text(expulsados[index].curso),
-                            ),
-                          );
-                        }),
+            return Column(
+              children: [
+                ElevatedButton(
+                  onPressed: () => expulsadosProvider.selectDate(context),
+                  child: Text(HumanFormats.formatDate(
+                    expulsadosProvider.selectedDate.toLocal())),
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: expulsados.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return GestureDetector(
+                        onTap: () {
+                          //_mostrarAlert(context, index, listadoExpulsadosHoy,
+                          //    cogerDatosExpulsados);
+                        },
+                        child: ListTile(
+                          title: Text(expulsados[index].apellidosNombre),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(expulsados[index].fecInic),
+                              const Text(" - "),
+                              Text(expulsados[index].fecFin),
+                            ],
+                          ),
+                          subtitle: Text(expulsados[index].curso),
+                        ),
+                      );
+                    },
                   ),
-                ],
-              ),
-              drawer: const SideMenu(),
+                ),
+              ],
             );
           } else {
-            return Scaffold(
-              appBar: AppBar(
-                title: const Text('Expulsados'),
-              ),
-              body: const Center(child: CircularProgressIndicator()),
-            );
+            return const Center(child: CircularProgressIndicator());
           }
-        });
+        },
+      ),
+      drawer: const SideMenu(),
+    );
   }
 }
