@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 //enum Cursos {PrimeroA,PrimeroB,PrimeroC,SegundoA,SegundoB,SegundoC,TerceroA,TerceroB,TerceroC,CuartoA,CuartoB,CuartoC,PrimeroFPB,SegundoFPB}
 
 Map<String, List<String>> cursos = {
-  'ESO': ['1A', '1B', '1C', '2A', '2B', '2C'],
+  'ESO': ['1A', '1B', '1C', '2A', '2B', '2C', '3A', '3B', '3C', '4A', '4B', '4C'],
   'BACH': ['1A', '1B', '1C', '1D', '2A', '2B'],
-  'CICLOS': ['1FPB', '2FPB', '1DAM', '2DAM']
+  'CICLOS': ['1FPB', '2FPB', '1DAM', '2DAM', '1DAW', '2DAW']
 };
 
 class SideMenu extends StatefulWidget {
@@ -60,7 +60,7 @@ class _SideMenuState extends State<SideMenu> {
           ],
         ),
         ExpansionTile(
-          title: const Text('CURSOS: '),
+          title: const Text('AULAS: '),
           subtitle: Text('Seleccionado: $seleccionAula'),
           children: [
             ...cursos[seleccionCursos]!.map((e) => RadioListTile(
@@ -75,6 +75,14 @@ class _SideMenuState extends State<SideMenu> {
             )),
           ],
         ),
+
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ElevatedButton(
+            onPressed: () => (context),
+            child: Text('Submit'), //IconData(189)),
+          ),
+        )
       ],
     );
   }
