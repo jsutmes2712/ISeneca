@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:iseneca/providers/expulsados_provider.dart';
 import 'package:iseneca/screens/convivencia/menu_expulsados.dart';
+import 'package:provider/provider.dart';
 //import 'package:url_launcher/url_launcher.dart';
 
 class ScreenExpulsados extends StatelessWidget {
@@ -7,8 +9,9 @@ class ScreenExpulsados extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return FutureBuilder(
-        future: Future.delayed(const Duration(seconds: 2)),
+        future: Future.delayed(Duration(seconds: 2)),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return const MenuExpulsados();
