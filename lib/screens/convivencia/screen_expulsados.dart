@@ -11,7 +11,7 @@ class ScreenExpulsados extends StatelessWidget {
   Widget build(BuildContext context) {
     
     return FutureBuilder(
-        future: Future.delayed(Duration(seconds: 2)),
+        future: Future.delayed(const Duration(seconds: 2)),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return const MenuExpulsados();
