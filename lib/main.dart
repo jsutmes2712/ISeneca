@@ -3,7 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:iseneca/firebase_options.dart';
 import 'package:iseneca/providers/expulsados_provider.dart';
 import 'package:iseneca/providers/providers.dart';
+import 'package:iseneca/screens/convivencia/incidencia_telefono_screen.dart';
+import 'package:iseneca/screens/convivencia/reflexion_screen.dart';
 import 'package:iseneca/screens/convivencia/screen_expulsados.dart';
+import 'package:iseneca/screens/convivencia/comportamiento_alumno_screen.dart';
+import 'package:iseneca/screens/convivencia/carnet_screen.dart';
 import 'package:iseneca/screens/screens.dart';
 import 'package:iseneca/service/services.dart';
 import 'package:provider/provider.dart';
@@ -119,6 +123,14 @@ class MyApp extends StatelessWidget {
             const ServicioInformesScreen(),
         "servicio_informes_detalles_screen": (BuildContext context) =>
             const ServicioInformesDetallesScreen(),
+        "comportamiento_alumno_screen": (BuildContext context) =>
+            const ComportamientoAlumnoScreen(),
+        "reflexion_screen": (BuildContext context) =>
+            const ReflexionScreen(),
+        "carnet_screen": (BuildContext context) =>
+            const CardScreen(),
+        "incidencia_telefono_screen": (BuildContext context) =>
+            const IncidenciaTelefonoScreen(),
       },
     );
   }

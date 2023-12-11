@@ -30,6 +30,42 @@ class ConvivenciaScreen extends StatelessWidget {
               ),
             ),
           ),
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, "comportamiento_alumno_screen"),
+            child: const Card(
+              child: ListTile(
+                leading: FaIcon(FontAwesomeIcons.boxes),
+                title: Text('Comportamiento alumno'),
+              ),
+            ),
+          ),
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, "reflexion_screen"),
+            child: const Card(
+              child: ListTile(
+                leading: FaIcon(FontAwesomeIcons.braille),
+                title: Text('Reflexion'),
+              ),
+            ),
+          ),
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, "carnet_screen"),
+            child: const Card(
+              child: ListTile(
+                leading: FaIcon(FontAwesomeIcons.adn),
+                title: Text('Carnet'),
+              ),
+            ),
+          ),
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, "incidencia_telefono_screen"),
+            child: const Card(
+              child: ListTile(
+                leading: FaIcon(FontAwesomeIcons.phone),
+                title: Text('Incidencia telefono'),
+              ),
+            ),
+          ),
         ],
       ),
     );
